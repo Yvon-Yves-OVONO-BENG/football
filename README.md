@@ -58,6 +58,6 @@ Administrator account
 
 ## Autor
 
-* **OVONO BENG Yvon Yves Noël** _alias_ [@outout14]([https://github.com/outout14](https://github.com/Yvon-Yves-OVONO-BENG/football/tree/master)
+* **OVONO BENG Yvon Yves Noël** _alias_ [@ovono]([https://github.com/outout14](https://github.com/Yvon-Yves-OVONO-BENG/football/tree/master)
 
 ## License
