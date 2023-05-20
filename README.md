@@ -21,16 +21,19 @@ What is required to start the project
 
 ### Installation
 
-1) Upload the project to github
-2) Unzip in the www in the football folder of wamp64
+1)Go to the www folder of wamp previously installed
+2) Then issue command : *git clone https://github.com/Yvon-Yves-OVONO-BENG/football.git* to download the project
 3) Open the project with the command prompt
-4) Launch the command Composer install or composer update
+4) Launch the command *composer install* or *composer update*
+5) Then create the database with the command: *symfony console doctrine:database:create* or *php bin/console doctrine:database:create*
+6) Then import the *football.sql* file
 
 ## Démarrage
 
-5) Launch your favorite browser
-6) Then enter the URL http://localhost/football/public
-7) Validate
+7) Launch your favorite browser
+8) Then enter the URL http://localhost/football/public
+9) Validate
+10) Click on the red Login button
 
 ## To start
 
@@ -58,6 +61,6 @@ Administrator account
 
 ## Autor
 
-* **OVONO BENG Yvon Yves Noël** _alias_ [@ovono]([https://github.com/outout14](https://github.com/Yvon-Yves-OVONO-BENG/football/tree/master)
+* **OVONO BENG Yvon Yves Noël** _alias_ [@ovono]([https://github.com/outout14](https://github.com/Yvon-Yves-OVONO-BENG/football)
 
 ## License
