@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% if id %}
+        Update team
+        {% else %}
+            Add Team 
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <div class="main-content">
+        <section class="section">
+          <div class="section-body">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4> 
+                                {% if id %}
+                                    <i class="fas fa-user-edit"></i>
+                                    Update team
+                                    {% else %}
+                                    <i class="fas fa-user-plus"></i>
+                                    Add Team 
+                                {% endif %}
+                            </h4>
+                        </div>
+                        {{ form_start(teamForm, {'attr': {'class': 'needs-validation'}}) }}
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-2 col-md-2 col-lg-2">
+                                        
+                                    </div>
+                                    <div class="col-8 col-md-8 col-lg-8">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Country</label>
+                                            <div class="col-sm-9">
+                                                {{ form_widget(teamForm.country) }}
+                                                <div class="invalid-feedback">
+                                                    {{ form_errors(teamForm.country) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Name</label>
+                                            <div class="col-sm-9">
+                                                {{ form_widget(teamForm.name) }}
+                                                <div class="invalid-feedback">
+                                                    {{ form_errors(teamForm.name) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Maney balance</label>
+                                            <div class="col-sm-9">
+                                                {{ form_widget(teamForm.moneyBalance) }}
+                                                <div class="valid-feedback">
+                                                    {{ form_errors(teamForm.moneyBalance) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mb-0 row">
+                                            <label class="col-sm-3 col-form-label">Players</label>
+                                            
+                                            <div class="col-md-9" id="player" data-prototype="{{ form_row(teamForm.players.vars.prototype)|e('html_attr') }}">
+
+                                                {{ form_row(teamForm.players) }}
+                                                
+                                                <span></span>
+                                            </div>
+                                            
+                                        </div>
+                                        <script src="{{asset('build/assets/js/players.js')}}"></script>
+                                    </div>
+                                    <div class="col-2 col-md-2 col-lg-2">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-right">
+                                <button class="btn btn-primary" type="submit">
+                                    {% if id %}
+                                        Save modifications
+                                        {% else %}
+                                        Submit
+                                    {% endif %}
+                                </button>
+                            </div>
+                        {{ form_end(teamForm) }}
+                    </div>
+                </div>
+            </div>
+          </div>
+        </section>
+    </div>
+{% endblock %}

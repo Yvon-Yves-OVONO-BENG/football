@@ -1,0 +1,24 @@
+.app {
+	background:url(/football/public/build/assets/img/background.png) no-repeat center center fixed; 
+	-webkit-bacground-size: cover; 
+	-moz-background-size: cover; 
+	-o-background-size: cover; 
+	background-size: cover;
+}
+
+.app .page #body {
+	background:url(/football/public/build/assets/img/background1.jpg) repeat-x
+}
+	
+
+.backgrounde {
+	background:url(/football/public/build/assets/img/backgroundFondu.png) no-repeat center center fixed; 
+	-webkit-bacground-size: cover; 
+	-moz-background-size: cover; 
+	-o-background-size: cover; 
+	background-size: cover;
+}
+
+.backgrounde .page #background{
+	background:url(/football/public/build/assets/img/backgroundFondu.jpg) repeat-x
+}

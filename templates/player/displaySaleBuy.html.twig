@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Display sale buy{% endblock %}
+
+
+{% block body %}
+
+{% for message in app.flashes('info') %}
+        <script>
+            alert("{{ message }}");
+        </script>
+    {% endfor %}
+<!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-body">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h4><i class="fas fa-handshake"></i> Number players for sale : <span class="badge badge-secondary">{{ sellBuys|length }}</span></h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-striped" id="table-1">
+                        <thead>
+                          <tr>
+                            <th class="text-center">
+                                <i class="fas fa-sort-numeric-down"></i>    N°
+                            </th>
+                            <th class="text-center"><i class="fas fa-user-alt"></i> Player</th>
+                            <th class="text-center"><i class="fas fa-futbol"></i> From</th>
+                            <th class="text-center"><i class="fas fa-futbol"></i> To</th>
+                            <th class="text-center"><i class="fas fa-money-bill-wave"></i> Amount</th>
+                            <th class="text-center"><i class="fas fa-calendar-alt"></i> Date</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                            {% set i = 1 %}
+                            {% for sellBuy in sellBuys %}
+                                
+                                <tr>
+                                    <td class="text-center">
+                                        {{ i }}
+                                    </td>
+                                    <td>
+                                        {{ sellBuy.player.name }} {{ sellBuy.player.surname }}
+                                    </td>
+                                    <td>
+										<span class="badge badge-danger">{{ sellBuy.fromTeam.name }} </span>
+										<span class="badge badge-primary">{{ sellBuy.fromTeam.country.en}}</span>
+                                         
+                                    </td>
+                                    <td class="align-middle">
+										<span class="badge badge-success">{{ sellBuy.toTeam.name }}</span>
+                                        <span class="badge badge-primary">{{ sellBuy.toTeam.country.en}}</span>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <span class="badge badge-secondary">{{ sellBuy.amount }} </span>
+                                    </td>
+
+									<td class="align-middle">
+                                        {{ sellBuy.dateAt|date('Y-m-d')}} 
+                                    </td>
+
+                                </tr>
+                                {% set i = i + 1 %}
+                            {% endfor %}
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+{% endblock %}

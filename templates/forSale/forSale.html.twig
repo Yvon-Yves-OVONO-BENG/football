@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}For Sale{% endblock %}
+
+{% block body %}
+<div class="main-content">
+        <section class="section">
+          <div class="section-body">
+            <div class="row">
+                <div class="col-12 col-md-2 col-lg-2">
+                </div>
+                <div class="col-12 col-md-8 col-lg-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>The <span class="badge badge-secondary">{{ player.name }} {{ player.surname }}</span> player is being sold at an amount of :</h4>
+                        </div>
+                        {{ form_start(formForSale, {'attr': {'class': 'needs-validation'}}) }}
+                                
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Amount</label>
+                                    <div class="col-sm-9">
+                                        {{ form_widget(formForSale.amount) }}
+                                        <div class="invalid-feedback">
+                                            {{ form_errors(formForSale.amount) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-right">
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </div>
+                        {{ form_end(formForSale) }}
+                                
+                    </div>
+                </div>
+                <div class="col-12 col-md-2 col-lg-2">
+                </div>
+            </div>
+          </div>
+        </section>
+      </div>
+{% endblock %}

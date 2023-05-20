@@ -1,0 +1,48 @@
+{% extends 'baseHome.html.twig' %}
+
+{% block title %}{% trans %}Home{% endtrans %}{% endblock %}
+
+{% block body %}
+	
+        <div id="app">
+            <section class="section">
+                <div class="container mt-5">
+                    <div class="row" style="margin-top: 15px !important;">
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" style="margin-top: 30px !important;">   
+                                    
+                        </div>
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" style="margin-top: 30px !important;">
+                            <div class="car">
+                                
+                                <div class="card-body">
+                                    <div class="car">
+                                        <div class="card-body" >
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                            <p style="font-size: 40px !important; color: #ffffff !important;">Player sell/buy </p> 
+                                            <br> 
+                                            <p style="font-size: 40px !important; color: #ffffff !important;">management system</p> 
+                                        
+                                        </div>
+                                    </div>
+                                        <div class="form-group">
+                                            <a href="{{ path('login') }}" class="btn btn-danger btn-lg btn-block" tabindex="4">
+                                                Log In
+                                            </a>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="mt-5 text-muted text-center">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+	</div>
+	<!-- right app-content-->
+
+{% endblock %}

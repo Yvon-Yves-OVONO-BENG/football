@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Teams{% endblock %}
+
+{% block body %}
+    <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-body">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h4><i class="fas fa-user-friends"></i> Teams </h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-striped" id="table-1">
+                        <thead>
+                          <tr>
+                            <th class="text-center">
+                              N°
+                            </th>
+                            <th class="text-center">Country</th>
+                            <th class="text-center">Name</th>
+                            <th class="text-center">Money balance</th>
+                            <th class="text-center">Players</th>
+                            <th class="text-center">Action</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                            {% set i = 1 %}
+                            {% for team in teams %}
+                                
+                                <tr>
+                                    <td class="text-center">
+                                        {{ i }}
+                                    </td>
+                                    <td>
+                                        {{ team.country.en }}
+                                    </td>
+                                    <td class="align-middle">
+                                        {{ team.name }}
+                                    </td>
+                                    <td class="align-middle">
+                                        {{ team.moneyBalance }}
+                                    </td>
+                                    <td>
+                                        {% for player in team.players %}
+                                            <img alt="image" src="{{asset('build/assets/img/users/user-5.png')}}" width="35">
+                                        {% endfor %}
+                                    </td>
+                                    
+                                    <td class="text-center">
+                                        <a href="{{ path('display_players', {'id': team.id }) }}" class="btn btn-primary"> <i class="fas fa-users"></i> Display players</a>
+
+                                        <a href="{{ path('edit_team', {'id': team.id }) }}" class="btn btn-primary"> <i class="far fa-edit"></i> Edit</a>
+                                        <a href="javascript:void(0)" class="btn btn-danger"> <i class="far fa-trash-alt"></i> Delete</a>
+                                    </td>
+                                </tr>
+                                {% set i = i + 1 %}
+                            {% endfor %}
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+{% endblock %}

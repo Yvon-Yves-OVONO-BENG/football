@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Display players for sale{% endblock %}
+
+
+{% block body %}
+
+{% for message in app.flashes('info') %}
+        <script>
+            alert("{{ message }}");
+        </script>
+    {% endfor %}
+<!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-body">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h4><i class="fas fa-user-friends"></i> Number players for sale : <span class="badge badge-secondary">{{ forSales|length }}</span></h4>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-striped" id="table-1">
+                        <thead>
+                          <tr>
+                            <th class="text-center">
+                                <i class="fas fa-sort-numeric-down"></i>    N°
+                            </th>
+                            <th class="text-center"><i class="fas fa-globe"></i> Country</th>
+                            <th class="text-center"><i class="fas fa-futbol"></i> Team</th>
+                            <th class="text-center"><i class="fas fa-user-circle"></i> Name surname</th>
+                            <th class="text-center"><i class="fas fa-money-bill-wave"></i> Amount</th>
+                            <th class="text-center"><i class="fas fa-cog"></i> Action</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                            {% set i = 1 %}
+                            {% for forSale in forSales %}
+                                
+                                <tr>
+                                    <td class="text-center">
+                                        {{ i }}
+                                    </td>
+                                    <td>
+                                        {{ forSale.player.team.country.en }}
+                                    </td>
+                                    <td>
+                                        {{ forSale.player.team.name }}
+                                    </td>
+                                    <td class="align-middle">
+                                        {{ forSale.player.name }} {{ forSale.player.surname }}
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <span class="badge badge-secondary">{{ forSale.amount }} </span>
+                                    </td>
+                                  
+                                    <td class="text-center">
+                                        <a href="{{ path('buy_player', {'id': forSale.player.id }) }}" class="btn btn-outline-info"> <i class="fas fa-money-bill-alt"></i> Buy</a>
+                                    </td>
+                                </tr>
+                                {% set i = i + 1 %}
+                            {% endfor %}
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+{% endblock %}
